@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html ng-app="clima">
+<head>
+	<!-- JQuery Framework -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- caracteres -->
+	<meta charset="utf-8">
+
+	<!-- Title -->
+ 	<title>clima</title>
+ 	<!-- clima icon -->
+	<link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRY3kEUBxDkoxs3HjIbFSwBvVhBF_yfOKFfXK4rkB3RQqPb7R7o">
+	<!--  -->
+	<link rel="stylesheet"  href="lib/boo/css/bootstrap.css">
+	<link rel="stylesheet"  href="css/style.css">
+
+</head>
+<body ng-controller="Listaclima">
+
+      <div class="row fullWidth">
+        <div class="col-md-12 text-center header">
+          <h4 class="title">CLIMAS</h4>
+        </div>
+      </div>
+
+      <div class="text-center fondoco">
+ 		<input id="city"></input>
+		<button id="getWeatherForcast">Busca</button>
+        <div id="showWeatherForcast"></div>      	
+      </div>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#getWeatherForcast").click(function(){
+			var city = $("#city").val();
+			var key  = 'b2b36eefb9ac71b989539377a2b97bde';
+
+			$.ajax({
+				url: 'http://api.openweathermap.org/data/2.5/weather',
+				dataType: 'json',
+				type: 'GET',
+				data: {q:city, appid: key, units: 'metric'},
+
+				success: function(data){
+					var wf = '';
+					$.each(data.weather, function(index, val) {
+							wf += '<p><b>' + data.name + "</b><img src="+ val.icon + ".png></p>"+
+							data.main.temp + '&deg;C ' + ' | ' + val.main + ", " + 
+							val.description
+					});
+					$("#showWeatherForcast").html(wf);
+				}
+			});
+
+		});
+	});
+
+</script>
+
+	<script src="lib/angular.js"></script>
+	<script src="lib/boo/js/bootstrap.js"></script>
+	<script src="js/script.js"></script>
+
+</body>
+</html>

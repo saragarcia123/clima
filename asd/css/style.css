@@ -1,0 +1,30 @@
+html, body {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUdtieyOMP4H-UXHsftyYF8LubVif-OlTNmQB7222ItdukzSED);
+  width: 100% !important;
+}
+.fullContainer, .fullWidth {
+  /* Full Size Container */
+  width: 100% !impor  tant;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+/* Header Bar Style */
+.header {
+  height: 80px;
+  background-color: #088A85; /*lila Color*/
+  width: 100%;
+  /* Vertical and Horizontal Align */
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+}
+/* clima Title Style */
+.title {
+  font-family: 'Rammetto One', cursive;
+  color: #FFFFFF;
+}
+.fondoco{
+  background:#088A85;
+  margin: 20%;
+}
